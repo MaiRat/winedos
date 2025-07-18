@@ -19,8 +19,8 @@
 # include <linux/head.h>
 # include <linux/mman.h>
 # include <linux/a.out.h>
-# include <linux/ldt.h>
 #endif
+#include "my_ldt.h"
 #include <errno.h>
 #include "neexe.h"
 #include "segmem.h"

@@ -13,8 +13,8 @@
 #else
 # include <linux/unistd.h>
 # include <linux/head.h>
-# include <linux/ldt.h>
 #endif
+#include "my_ldt.h"
 
 #ifndef __DJGPP__
 _syscall2(int, modify_ldt, int, func, void *, ptr)
