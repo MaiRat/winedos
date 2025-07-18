@@ -17,8 +17,8 @@
 #else
 # include <linux/unistd.h>
 # include <linux/head.h>
-# include <linux/ldt.h>
 #endif
+#include "my_ldt.h"
 #include <errno.h>
 #include "neexe.h"
 #include "segmem.h"

@@ -13,8 +13,8 @@
 #else
 # include <linux/unistd.h>
 # include <linux/head.h>
-# include <linux/ldt.h>
 #endif
+#include "my_ldt.h"
 #include "prototypes.h"
 
 /**********************************************************************
