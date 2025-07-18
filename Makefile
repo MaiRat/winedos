@@ -30,7 +30,7 @@ $(TARGET): $(OBJS)
 	$(CC) $(CFLAGS) -o $(TARGET) $(OBJS) $(LIBS)
 
 build: build.c
-	cc -g -o build build.c
+	$(CC) -g -o build build.c
 
 libldt.a: ldtlib.c
 	$(CC) -O6 -c ldtlib.c

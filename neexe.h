@@ -12,10 +12,10 @@
  */
 struct mz_header_s
 {
-    u_char dont_care1[0x18];	/* MZ Header stuff			*/
-    u_char must_be_0x40;	/* 0x40 for non-MZ program		*/
-    u_char dont_care2[0x23];	/* More MZ header stuff			*/
-    u_short ne_offset;		/* Offset to extended header		*/
+    unsigned char dont_care1[0x18];	/* MZ Header stuff			*/
+    unsigned char must_be_0x40;	/* 0x40 for non-MZ program		*/
+    unsigned char dont_care2[0x23];	/* More MZ header stuff			*/
+    unsigned short ne_offset;		/* Offset to extended header		*/
 };
 
 /*
@@ -24,37 +24,37 @@ struct mz_header_s
 struct ne_header_s
 {
     char    header_type[2];	/* Must contain 'N' 'E'			*/
-    u_char  linker_version;	/* Linker version number		*/
-    u_char  linker_revision;	/* Linker revision number		*/
-    u_short entry_tab_offset;	/* Offset to entry table relative to NE */
-    u_short entry_tab_length;	/* Length of etnry table in bytes	*/
-    u_long  reserved1;		/* Reserved by Microsoft		*/
-    u_short format_flags;	/* Flags that segments in this file	*/
-    u_short auto_data_seg;	/* Automatic data segment number	*/
-    u_short local_heap_length;	/* Initial size of local heap		*/
-    u_short stack_length;	/* Initial size of stack		*/
-    u_short ip;			/* Initial IP				*/
-    u_short cs;			/* Initial CS				*/
-    u_short sp;			/* Initial SP				*/
-    u_short ss;			/* Initial SS				*/
-    u_short n_segment_tab;	/* # of entries in segment table	*/
-    u_short n_mod_ref_tab;	/* # of entries in module reference tab.*/
-    u_short nrname_tab_length; 	/* Length of nonresident-name table     */
-    u_short segment_tab_offset;	/* Offset to segment table		*/
-    u_short resource_tab_offset;/* Offset to resource table		*/
-    u_short rname_tab_offset;	/* Offset to resident-name table	*/
-    u_short moduleref_tab_offset;/* Offset to module reference table	*/
-    u_short iname_tab_offset;	/* Offset to imported name table	*/
-    u_long  nrname_tab_offset;	/* Offset to nonresident-name table	*/
-    u_short n_mov_entry_points;	/* # of movable entry points		*/
-    u_short align_shift_count;	/* Logical sector alignment shift count */
-    u_short n_resource_seg;	/* # of resource segments		*/
-    u_char  operating_system;	/* Flags indicating target OS		*/
-    u_char  additional_flags;	/* Additional information flags		*/
-    u_short fastload_offset;	/* Offset to fast load area		*/
-    u_short fastload_length;	/* Length of fast load area		*/
-    u_short reserved2;		/* Reserved by Microsoft		*/
-    u_short expect_version;	/* Expected Windows version number	*/
+    unsigned char  linker_version;	/* Linker version number		*/
+    unsigned char  linker_revision;	/* Linker revision number		*/
+    unsigned short entry_tab_offset;	/* Offset to entry table relative to NE */
+    unsigned short entry_tab_length;	/* Length of etnry table in bytes	*/
+    unsigned long  reserved1;		/* Reserved by Microsoft		*/
+    unsigned short format_flags;	/* Flags that segments in this file	*/
+    unsigned short auto_data_seg;	/* Automatic data segment number	*/
+    unsigned short local_heap_length;	/* Initial size of local heap		*/
+    unsigned short stack_length;	/* Initial size of stack		*/
+    unsigned short ip;			/* Initial IP				*/
+    unsigned short cs;			/* Initial CS				*/
+    unsigned short sp;			/* Initial SP				*/
+    unsigned short ss;			/* Initial SS				*/
+    unsigned short n_segment_tab;	/* # of entries in segment table	*/
+    unsigned short n_mod_ref_tab;	/* # of entries in module reference tab.*/
+    unsigned short nrname_tab_length; 	/* Length of nonresident-name table     */
+    unsigned short segment_tab_offset;	/* Offset to segment table		*/
+    unsigned short resource_tab_offset;/* Offset to resource table		*/
+    unsigned short rname_tab_offset;	/* Offset to resident-name table	*/
+    unsigned short moduleref_tab_offset;/* Offset to module reference table	*/
+    unsigned short iname_tab_offset;	/* Offset to imported name table	*/
+    unsigned long  nrname_tab_offset;	/* Offset to nonresident-name table	*/
+    unsigned short n_mov_entry_points;	/* # of movable entry points		*/
+    unsigned short align_shift_count;	/* Logical sector alignment shift count */
+    unsigned short n_resource_seg;	/* # of resource segments		*/
+    unsigned char  operating_system;	/* Flags indicating target OS		*/
+    unsigned char  additional_flags;	/* Additional information flags		*/
+    unsigned short fastload_offset;	/* Offset to fast load area		*/
+    unsigned short fastload_length;	/* Length of fast load area		*/
+    unsigned short reserved2;		/* Reserved by Microsoft		*/
+    unsigned short expect_version;	/* Expected Windows version number	*/
 };
 
 /*
@@ -84,10 +84,10 @@ struct ne_header_s
  */
 struct ne_segment_table_entry_s
 {
-    u_short seg_data_offset;	/* Sector offset of segment data	*/
-    u_short seg_data_length;	/* Length of segment data		*/
-    u_short seg_flags;		/* Flags associated with this segment	*/
-    u_short min_alloc;		/* Minimum allocation size for this	*/
+    unsigned short seg_data_offset;	/* Sector offset of segment data	*/
+    unsigned short seg_data_length;	/* Length of segment data		*/
+    unsigned short seg_flags;		/* Flags associated with this segment	*/
+    unsigned short min_alloc;		/* Minimum allocation size for this	*/
 };
 
 /*
@@ -109,11 +109,11 @@ struct ne_segment_table_entry_s
  */
 struct relocation_entry_s
 {
-    u_char  address_type;	/* Relocation address type		*/
-    u_char  relocation_type;	/* Relocation type			*/
-    u_short offset;		/* Offset in segment to fixup		*/
-    u_short target1;		/* Target specification			*/
-    u_short target2;		/* Target specification			*/
+    unsigned char  address_type;	/* Relocation address type		*/
+    unsigned char  relocation_type;	/* Relocation type			*/
+    unsigned short offset;		/* Offset in segment to fixup		*/
+    unsigned short target1;		/* Target specification			*/
+    unsigned short target2;		/* Target specification			*/
 };
 
 /*

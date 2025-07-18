@@ -87,18 +87,6 @@ char *strupper(char *s)
     return s;
 }
 
-int stricmp(char *s1, char *s2)
-{
-    if (strlen(s1) != strlen(s2))
-	return -1;
-    
-    while (*s1 != '\0')
-	if (*s1++ != *s2++)
-	    return -1;
-    
-    return 0;
-}
-
 char *
 GetTokenInLine(void)
 {
@@ -586,7 +574,7 @@ main(int argc, char **argv)
 		fprintf(fp, "\tpushw\t%%ds\n");
 		fprintf(fp, "\tpushw\t%%es\n");
 		fprintf(fp, "\tmovl\t%%ebp,%%eax\n");
-		fprintf(fp, "\tmovw\t%%esp,%%ebp\n");
+		fprintf(fp, "\tmovl\t%%esp,%%ebp\n");
 		fprintf(fp, "\tpushl\t20(%%ebp)\n");
 		fprintf(fp, "\tmovl\t%%eax,%%ebp\n");
 		fprintf(fp, "\tmovl\t$%d,%%eax\n", i);

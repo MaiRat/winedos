@@ -74,7 +74,7 @@ PrintRelocationTable(char *exe_ptr,
     struct relocation_entry_s *rep;
     int i;
     int offset;
-    u_short n_entries, *sp;
+    unsigned short n_entries, *sp;
 
     printf("RELOCATION TABLE %d:\n", segment + 1);
     
@@ -85,7 +85,7 @@ PrintRelocationTable(char *exe_ptr,
     if (offset == 0)
 	offset = 0x10000;
 
-    sp = (u_short *) (exe_ptr + seg_entry_p->seg_data_offset * 512 + offset);
+    sp = (unsigned short *) (exe_ptr + seg_entry_p->seg_data_offset * 512 + offset);
     n_entries = *sp;
 
     rep = (struct relocation_entry_s *) (sp + 1);
