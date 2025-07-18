@@ -220,7 +220,7 @@ _CallTo32:
 	je	noargs
 	popw	%gs:offset
 	popw	%gs:selector
-	addw	%gs:nbytes,%esp
+	addl	%gs:nbytes,%esp
 	pushw	%gs:selector
 	pushw	%gs:offset
 noargs:
@@ -275,7 +275,7 @@ _KERNEL_InitTask:
 	je	noargs_2
 	popw	%gs:offset
 	popw	%gs:selector
-	addw	%gs:nbytes,%esp
+	addl	%gs:nbytes,%esp
 	pushw	%gs:selector
 	pushw	%gs:offset
 noargs_2:

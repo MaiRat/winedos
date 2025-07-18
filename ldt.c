@@ -6,9 +6,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <errno.h>
-#include <linux/unistd.h>
-#include <linux/head.h>
-#include <linux/ldt.h>
+#ifdef __DJGPP__
+# include <dos.h>
+# include <dpmi.h>
+# include <go32.h>
+#else
+# include <linux/unistd.h>
+# include <linux/head.h>
+# include <linux/ldt.h>
+#endif
 #include "prototypes.h"
 
 /**********************************************************************
