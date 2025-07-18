@@ -10,10 +10,16 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <unistd.h>
-#include <linux/unistd.h>
-#include <linux/head.h>
-#include <linux/ldt.h>
-#include <linux/segment.h>
+#ifdef __DJGPP__
+# include <dos.h>
+# include <dpmi.h>
+# include <go32.h>
+#else
+# include <linux/unistd.h>
+# include <linux/head.h>
+# include <linux/ldt.h>
+# include <linux/segment.h>
+#endif
 #include <errno.h>
 #include "neexe.h"
 #include "segmem.h"
