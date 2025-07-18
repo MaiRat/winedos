@@ -14,6 +14,46 @@
 # include <dos.h>
 # include <dpmi.h>
 # include <go32.h>
+
+/* --------------------------------------------------------------------
+ * Provide a simple mmap() replacement for the DJGPP/DOS environment.
+ * DJGPP does not supply <sys/mman.h>, so we allocate linear memory
+ * through DPMI services instead.  Only the functionality needed by
+ * this project is implemented.
+ */
+# ifndef PROT_READ
+#  define PROT_READ  0x1
+#  define PROT_WRITE 0x2
+#  define PROT_EXEC  0x4
+# endif
+
+# ifndef MAP_PRIVATE
+#  define MAP_PRIVATE 0
+#  define MAP_FIXED   0
+# endif
+
+static void *djgpp_mmap(void *addr, size_t length, int prot, int flags,
+                        int fd, off_t offset)
+{
+    __dpmi_meminfo info;
+
+    (void)addr;   /* unused */
+    (void)prot;
+    (void)flags;
+    (void)fd;
+    (void)offset;
+
+    info.address = 0;
+    info.size    = length;
+    if (__dpmi_allocate_memory(&info))
+    {
+        errno = ENOMEM;
+        return (void *)-1;
+    }
+    return (void *)info.address;
+}
+
+# define mmap djgpp_mmap
 #else
 # include <linux/unistd.h>
 # include <linux/head.h>
